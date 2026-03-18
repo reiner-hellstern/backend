@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/zuchtstaettenbesichtigungen-store-response.json",
+  "title": "Store Zuchtstättenbesichtigung Response",
+  "type": "object",
+  "required": ["success", "error", "data"],
+  "properties": {
+    "success": {
+      "type": ["string", "null"],
+      "description": "Erfolgsmeldung des Endpunkts."
+    },
+    "error": {
+      "type": ["string", "null"],
+      "description": "Fehlermeldung, wenn der Vorgang nicht abgeschlossen werden konnte."
+    },
+    "data": {
+      "description": "Payload der erstellten Zuchtstättenbesichtigung.",
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["id", "termin_am", "bestaetigung_angaben"],
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "grund": {
+              "anyOf": [
+                { "type": "null" },
+                {
+                  "type": "object",
+                  "required": ["id", "name"],
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" }
+                  }
+                }
+              ]
+            },
+            "status": {
+              "anyOf": [
+                { "type": "null" },
+                {
+                  "type": "object",
+                  "required": ["id", "name"],
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" }
+                  }
+                }
+              ]
+            },
+            "termin_am": {
+              "type": "string",
+              "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$"
+            },
+            "antragsteller": {
+              "anyOf": [
+                { "type": "null" },
+                {
+                  "type": "object",
+                  "required": ["id", "vorname", "nachname", "mitgliedsnummer"],
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "vorname": { "type": ["string", "null"] },
+                    "nachname": { "type": ["string", "null"] },
+                    "mitgliedsnummer": { "type": ["string", "null"] }
+                  }
+                }
+              ]
+            },
+            "zuchtwart": {
+              "anyOf": [
+                { "type": "null" },
+                {
+                  "type": "object",
+                  "required": ["id", "person"],
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "person": {
+                      "anyOf": [
+                        { "type": "null" },
+                        {
+                          "type": "object",
+                          "required": ["id", "vorname", "nachname"],
+                          "properties": {
+                            "id": { "type": "integer" },
+                            "vorname": { "type": ["string", "null"] },
+                            "nachname": { "type": ["string", "null"] }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "zuchtstaette": {
+              "anyOf": [
+                { "type": "null" },
+                {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "strasse",
+                    "adresszusatz",
+                    "postleitzahl",
+                    "ort",
+                    "land",
+                    "laenderkuerzel"
+                  ],
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "strasse": { "type": ["string", "null"] },
+                    "adresszusatz": { "type": ["string", "null"] },
+                    "postleitzahl": { "type": ["string", "null"] },
+                    "ort": { "type": ["string", "null"] },
+                    "land": { "type": ["string", "null"] },
+                    "laenderkuerzel": { "type": ["string", "null"] }
+                  }
+                }
+              ]
+            },
+            "bestaetigung_angaben": {
+              "type": "boolean"
+            },
+            "anmerkungen_fuer_zw": {
+              "type": ["string", "null"]
+            },
+            "created_at": {
+              "type": ["string", "null"],
+              "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$"
+            },
+            "updated_at": {
+              "type": ["string", "null"],
+              "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

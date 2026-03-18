@@ -1,0 +1,113 @@
+.subheadline {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 12pt;
+  line-height: 15.6pt;
+}
+
+.subheadline-bold {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12pt;
+  line-height: 15.6pt;
+}
+.subheadline-bold.smaller {
+  font-size: 10pt;
+}
+
+.sectionheadline {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 12pt;
+  line-height: 14.4pt;
+}
+
+.sectionheadline-bold {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12pt;
+  line-height: 14.4pt;
+}
+
+.sectionheadline-small {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8pt;
+  line-height: 12pt;
+}
+
+.copy {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 9pt;
+  line-height: 12pt;
+}
+
+.copy-bold {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9pt;
+  line-height: 12pt;
+}
+
+.copy-small {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 7pt;
+  line-height: 8.4pt;
+}
+
+.copy-small-bold {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 7pt;
+  line-height: 8.4pt;
+}
+
+.mg-headline {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10pt;
+  line-height: 12pt;
+}
+.mg-headline.inverted {
+  background-color: gray;
+  color: white;
+  line-height: 100%;
+  padding: 0.8mm 0 0.8mm 1.6mm !important;
+}
+
+.mg-small {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 7pt;
+  line-height: 12pt;
+}
+
+.amtstitel {
+  font-family: "canada-type-gibson";
+  font-style: normal;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 7pt;
+  line-height: 8.4pt;
+  font-size: 6pt;
+}
+
+/*# sourceMappingURL=fonts.css.map */

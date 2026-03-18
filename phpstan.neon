@@ -1,0 +1,33 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    # Level 0-9: Start mit 5, später schrittweise erhöhen
+    level: 5
+    
+    # Zu analysierende Pfade
+    paths:
+        - app
+        - routes
+        - config
+    
+    # Ausschlüsse
+    excludePaths:
+        - app/Http/Controllers/RichterController_old.php
+        - vendor
+    
+    # Deprecated Options als ignoreErrors
+    ignoreErrors:
+        - identifier: missingType.iterableValue
+        - identifier: missingType.generics
+        -
+            message: "#Relation 'zwingers' is not found in App\\\\Models\\\\Person model#"
+            path: app/Http/Controllers/ZuechterController.php
+    
+    # Fehler-Level
+    reportUnmatchedIgnoredErrors: false
+    
+    # Parallel Execution (schneller)
+    parallel:
+        maximumNumberOfProcesses: 4

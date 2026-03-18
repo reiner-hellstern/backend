@@ -1,0 +1,108 @@
+openapi: 3.1.0
+info:
+  title: Zuchtstättenbesichtigung anlegen
+  version: '1.0.0'
+  description: |-
+    Erstellt einen neuen Antrag auf Zuchtstättenbesichtigung. Der Endpunkt
+    erwartet ein gültiges Sanctum-Authentifizierungs-Cookie.
+servers:
+  - url: https://example.com
+paths:
+  /api/zuchtstaettenbesichtigung:
+    post:
+      operationId: storeZuchtstaettenbesichtigung
+      summary: Antrag auf Zuchtstättenbesichtigung stellen
+      tags:
+        - Zuchtstättenbesichtigungen
+      security:
+        - sanctum: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - grund_id
+                - antragsteller_id
+                - zuchtwart_id
+                - termin_am
+                - bestaetigung_angaben
+              properties:
+                grund_id:
+                  type: integer
+                  minimum: 1
+                  description: ID des Grundes aus `optionen_zst_besichtigung_grund`.
+                antragsteller_id:
+                  type: integer
+                  description: Personen-ID des Antragstellers.
+                zuchtwart_id:
+                  type: integer
+                  description: ID des ausgewählten Zuchtwarts.
+                zwinger_id:
+                  type: integer
+                  nullable: true
+                  description: Zwinger-ID; wird benötigt, wenn keine automatische Zuordnung möglich ist.
+                zuchtstaette_id:
+                  type: integer
+                  nullable: true
+                  description: Vorhandene Zuchtstätten-ID. Nur erforderlich, wenn keine neue Adresse angelegt wird.
+                termin_am:
+                  type: string
+                  pattern: "^\\d{2}\\.\\d{2}\\.\\d{4}$"
+                  description: Besuchsdatum im Format `TT.MM.JJJJ`.
+                bestaetigung_angaben:
+                  type: boolean
+                  description: Bestätigung der Richtigkeit aller Angaben.
+                anmerkung:
+                  type: string
+                  nullable: true
+                  description: Freitext für Bemerkungen an den Zuchtwart.
+                rassen:
+                  type: array
+                  items:
+                    type: integer
+                  description: Optionale Liste von Rasse-IDs für zukünftige Zuchten.
+                maengel_bestaetigt:
+                  type: array
+                  nullable: true
+                  items:
+                    type: boolean
+                  description: Muss bei Grund 4 ausschließlich `true` Werte enthalten.
+                zuchtstaette:
+                  type: object
+                  nullable: true
+                  description: Adressdaten für die Anlage einer neuen Zuchtstätte.
+                  properties:
+                    strasse:
+                      type: string
+                    adresszusatz:
+                      type: string
+                      nullable: true
+                    postleitzahl:
+                      type: string
+                    ort:
+                      type: string
+                    land:
+                      type: string
+                      default: Deutschland
+                    laenderkuerzel:
+                      type: string
+                      default: DE
+      responses:
+        '201':
+          description: Antrag erfolgreich gespeichert
+          content:
+            application/json:
+              schema:
+                $ref: '../json-schemas/zuchtstaettenbesichtigungen-store-response.json'
+        '422':
+          description: Validierungsfehler
+        '500':
+          description: Unerwarteter Serverfehler
+components:
+  securitySchemes:
+    sanctum:
+      type: apiKey
+      in: cookie
+      name: XSRF-TOKEN

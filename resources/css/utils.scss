@@ -1,0 +1,493 @@
+// Utils
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+$border-thickness: 0.5pt;
+$border-thickness-double: 1.5pt;
+
+@mixin border-default {
+    border-style: solid;
+    border-color: black;
+    border-width: 0;
+}
+
+.border-solid {
+    @include border-default();
+    border-style: solid !important;
+}
+
+.border-dashed {
+    @include border-default();
+    border-style: dashed !important;
+}
+
+.border-dotted {
+    @include border-default();
+    border-style: dotted !important;
+}
+
+.border-trbl,
+.border-all {
+    @include border-default();
+    border-width: $border-thickness;
+}
+
+.border-t,
+.border-tr,
+.border-trb,
+.border-trbl,
+.border-tb,
+.border-tbl,
+.border-trl,
+.border-trb,
+.border-tl {
+    @include border-default();
+    border-top-width: $border-thickness !important;
+}
+
+.border-r,
+.border-tr,
+.border-trb,
+.border-trbl,
+.border-rbl,
+.border-rb,
+.border-rbl,
+.border-rl {
+    @include border-default();
+    border-right-width: $border-thickness !important;
+}
+
+.border-b,
+.border-rb,
+.border-trb,
+.border-tb,
+.border-tbl,
+.border-bl,
+.border-rbl,
+.border-trbl {
+    @include border-default();
+    border-bottom-width: $border-thickness !important;
+}
+
+.border-l,
+.border-tl,
+.border-rl,
+.border-bl,
+.border-tbl,
+.border-trl,
+.border-rbl,
+.border-trbl {
+    @include border-default();
+    border-left-width: $border-thickness !important;
+}
+
+.border-t-thick,
+.border-tr-thick,
+.border-trb-thick,
+.border-trbl-thick,
+.border-tb-thick,
+.border-tbl-thick,
+.border-trl-thick,
+.border-trb-thick,
+.border-tl-thick {
+    @include border-default();
+    border-top-width: $border-thickness-double !important;
+}
+
+.border-r-thick,
+.border-tr-thick,
+.border-trb-thick,
+.border-trbl-thick,
+.border-rbl-thick,
+.border-rb-thick,
+.border-rbl-thick,
+.border-rl-thick {
+    @include border-default();
+    border-right-width: $border-thickness-double !important;
+}
+
+.border-b-thick,
+.border-rb-thick,
+.border-trb-thick,
+.border-tb-thick,
+.border-tbl-thick,
+.border-bl-thick,
+.border-rbl-thick,
+.border-trbl-thick {
+    @include border-default();
+    border-bottom-width: $border-thickness-double !important;
+}
+
+.border-l-thick,
+.border-tl-thick,
+.border-rl-thick,
+.border-bl-thick,
+.border-tbl-thick,
+.border-trl-thick,
+.border-rbl-thick,
+.border-trbl-thick {
+    @include border-default();
+    border-left-width: $border-thickness-double !important;
+}
+
+.margin-t {
+    margin-top: 0.5mm;
+}
+
+.margin-r {
+    margin-right: 0.5mm;
+}
+
+.margin-r-x2 {
+    margin-right: 1.6mm;
+}
+
+.margin-r-x3 {
+    margin-right: 2.4mm;
+}
+
+.margin-r-x4 {
+    margin-right: 3.2mm;
+}
+
+.margin-l {
+    margin-left: 0.5mm;
+}
+
+.margin-l-x2 {
+    margin-left: 1.6mm;
+}
+
+.margin-l-x3 {
+    margin-left: 2.4mm;
+}
+
+.margin-l-x4 {
+    margin-left: 3.2mm;
+}
+
+.margin-b {
+    margin-bottom: 0.5mm;
+}
+
+.nowrap,
+.no-wrap {
+    white-space: nowrap;
+    // text-wrap: nowrap;
+}
+
+/* Text wrapping allowed, linebreaks from source code are also considered
+ * -> New line in source code = new line in document
+ */
+.wrap-pre-line {
+    white-space: pre-line;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a {
+    &.underlined {
+        text-decoration: underline;
+    }
+}
+
+.mg-underline {
+    width: 100%;
+    height: 2.5pt;
+    background-color: black;
+}
+
+.text-align-l {
+    text-align: left !important;
+}
+
+.text-align-r {
+    text-align: right !important;
+}
+
+.text-align-c {
+    text-align: center !important;
+}
+
+.v-align-top {
+    display: inline;
+    vertical-align: top;
+}
+
+.v-align-middle {
+    display: inline;
+    vertical-align: middle;
+}
+
+.v-align-bottom {
+    display: inline;
+    vertical-align: bottom;
+}
+
+.v-align-baseline {
+    display: inline;
+    vertical-align: baseline;
+}
+
+.v-align-text-top {
+    display: inline;
+    vertical-align: text-top;
+}
+
+.v-align-text-bottom {
+    display: inline;
+    vertical-align: text-bottom;
+}
+
+.inline-block {
+    float: none !important;
+    display: inline-block !important;
+}
+
+.inline {
+    display: inline !important;
+}
+
+.block {
+    display: block !important;
+}
+
+// Used to create a textbox
+// [.text-box] automatically wraps
+// [.text-box-no-wrap] does not wrap; text is truncated
+.text-box {
+    display: inline-block;
+
+    // text-wrap: wrap;
+    overflow: hidden;
+    // text-overflow: ellipsis;
+
+    width: 100%;
+
+    &-no-wrap {
+        white-space: nowrap;
+        // text-wrap: nowrap;
+    }
+
+    p,
+    a,
+    span {
+        line-height: 100%;
+    }
+}
+
+.margin-b {
+    margin-bottom: 0.8mm !important;
+}
+
+.margin-b-x2 {
+    margin-bottom: 1.6mm !important;
+}
+
+.margin-b-x3 {
+    margin-bottom: 3.2mm !important;
+}
+
+.margin-b-x4 {
+    margin-bottom: 4.0mm !important;
+}
+
+.padding-b {
+    padding-bottom: 0.8mm !important;
+}
+
+.padding-b-x2 {
+    padding-bottom: 1.6mm !important;
+}
+
+.padding-b-x3 {
+    padding-bottom: 3.2mm !important;
+}
+
+.padding-b-x4 {
+    padding-bottom: 4.0mm !important;
+}
+
+.margin-t {
+    margin-top: 0.8mm !important;
+}
+
+.margin-t-x2 {
+    margin-top: 1.6mm !important;
+}
+
+.margin-t-x3 {
+    margin-top: 2.4mm !important;
+}
+
+.margin-t-x4 {
+    margin-top: 4.0mm !important;
+}
+
+.padding-t {
+    padding-top: 0.8mm !important;
+}
+
+.padding-t-x2 {
+    padding-top: 1.6mm !important;
+}
+
+.padding-t-x3 {
+    padding-top: 2.4mm !important;
+}
+
+.padding-t-x4 {
+    padding-top: 4.0mm !important;
+}
+
+.padding-r {
+    padding-right: 0.8mm !important;
+}
+
+.padding-r-x2 {
+    padding-right: 1.6mm !important;
+}
+
+.padding-r-x3 {
+    padding-right: 3.2mm !important;
+}
+
+.padding-r-x4 {
+    padding-right: 4.0mm !important;
+}
+
+.padding-l {
+    padding-left: 0.8mm !important;
+}
+
+.padding-l-x2 {
+    padding-left: 1.6mm !important;
+}
+
+.padding-l-x3 {
+    padding-left: 3.2mm !important;
+}
+
+.padding-l-x4 {
+    padding-left: 4.0mm !important;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.line-height-normal {
+    line-height: normal !important;
+}
+
+.line-height-100 {
+    line-height: 100%;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.pin-bottom {
+    position: absolute;
+    bottom: 0;
+
+    // NOTE IF CAUSES PROBLEMS: used to add space to x-sucess-info, ... -> was inline style before
+    margin-bottom: 20mm;
+}
+
+.line {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+
+    // * {
+    //     display: inline;
+    // }
+
+    // "^="-Selector is actually not CSS2 or 2.1 compatible but works
+
+
+    div,
+    p,
+    span,
+    li,
+    a {
+        &[class^="span-"] {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+}
+
+.display-table {
+    display: table !important;
+}
+
+.display-table-cell {
+    display: table-cell !important;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.line-height-0 {
+    line-height: 0;
+}
+
+.page-break {
+    page-break-after: always;
+
+    &+* {
+        // padding-top: 39mm;
+    }
+}
+
+.no-page-break-inside {
+    page-break-inside: avoid;
+}
+
+// Wesenstest
+.wt-grey {
+    background: rgba(74, 74, 74, 0.15);
+}
+
+.wt-table {
+    table {
+
+        th,
+        td {
+            padding: 0.45mm 0.9mm;
+        }
+    }
+}
+
+// .w-100-p {
+//     width: auto;
+
+//     &>* {
+//         table-layout: fixed;
+//         width: auto;
+//         color: green;
+//         word-wrap: break-word;
+//     }
+// }

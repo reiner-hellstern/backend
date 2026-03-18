@@ -1,0 +1,18 @@
+//     "require": {
+// YES       "barryvdh/laravel-dompdf": "^2.0",
+//       "guzzlehttp/guzzle": "^7.7",
+// YES      "intervention/image": "^2.7",
+// YES      "laravel/sanctum": "^3.2",
+//       "laraveldaily/laravel-invoices": "^3.0",
+//       "predis/predis": "^2.2",
+//  YES    "rap2hpoutre/fast-excel": "^5.2",
+//  YES     "spatie/laravel-activitylog": "^4.7",
+//   YES    "spatie/laravel-permission": "^5.10",
+// YES      "spatie/laravel-responsecache": "^7.4",
+// YES      "spatie/pdf-to-image": "^2.2"
+//   },
+//   "require-dev": {
+//     "barryvdh/laravel-debugbar": "^3.6",
+//  YES     "laravel/telescope": "^4.15",
+//       "spatie/laravel-ignition": "^2.0"
+//   },

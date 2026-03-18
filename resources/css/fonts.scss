@@ -1,0 +1,169 @@
+@mixin font-setup {
+    font-family: "canada-type-gibson";
+    // font-optical-sizing: auto;
+    font-style: normal;
+    // font-variation-settings: "wdth" 100;
+}
+
+@mixin font-regular {
+    @include font-setup();
+    font-weight: 400;
+}
+
+@mixin font-book {
+    @include font-setup();
+    font-weight: 300;
+    font-style: normal;
+}
+
+@mixin font-italic {
+    @include font-setup();
+    font-weight: 400;
+}
+
+@mixin font-medium {
+    @include font-setup();
+    font-weight: 500;
+}
+
+@mixin font-bold {
+    @include font-setup();
+    font-weight: 700;
+}
+
+$reduce: 0pt;
+
+@mixin headline {
+    @include font-medium();
+    font-size: 22pt;
+    line-height: calc(24pt - $reduce);
+}
+
+@mixin subheadline {
+    @include font-book();
+    font-size: 12pt;
+    line-height: calc(15.6pt - $reduce);
+}
+
+@mixin subheadline-bold {
+    @include font-medium();
+    font-size: 12pt;
+    line-height: calc(15.6pt - $reduce);
+}
+
+@mixin sectionheadline {
+    @include font-book();
+    font-size: 12pt;
+    line-height: calc(14.4pt - $reduce);
+}
+
+@mixin sectionheadline-bold {
+    @include font-medium();
+    font-size: 12pt;
+    line-height: calc(14.4pt - $reduce);
+}
+
+@mixin sectionheadline-small {
+    @include font-medium();
+    font-size: 8pt;
+    line-height: calc(12pt - $reduce);
+}
+
+@mixin copy {
+    @include font-book();
+    font-size: 9pt;
+    line-height: calc(12pt - $reduce);
+}
+
+@mixin copy-bold {
+    @include font-medium();
+    font-size: 9pt;
+    line-height: calc(12pt - $reduce);
+}
+
+@mixin copy-small {
+    @include font-book();
+    font-size: 7pt;
+    line-height: calc(8.4pt - $reduce);
+}
+
+@mixin copy-small-bold {
+    @include font-medium();
+    font-size: 7pt;
+    line-height: calc(8.4pt - $reduce);
+}
+
+@mixin mg-headline {
+    @include font-bold();
+    text-transform: uppercase;
+    font-size: 10pt;
+    line-height: calc(12pt - $reduce);
+}
+
+@mixin mg-small {
+    @include font-bold();
+    font-size: 7pt;
+    line-height: calc(12pt - $reduce);
+}
+
+
+// Use in HTML:
+.subheadline {
+    @include subheadline();
+}
+
+.subheadline-bold {
+    @include subheadline-bold();
+
+    &.smaller {
+        font-size: 10pt;
+    }
+}
+
+.sectionheadline {
+    @include sectionheadline();
+}
+
+.sectionheadline-bold {
+    @include sectionheadline-bold();
+}
+
+.sectionheadline-small {
+    @include sectionheadline-small();
+}
+
+.copy {
+    @include copy();
+}
+
+.copy-bold {
+    @include copy-bold();
+}
+
+.copy-small {
+    @include copy-small();
+}
+
+.copy-small-bold {
+    @include copy-small-bold();
+}
+
+.mg-headline {
+    @include mg-headline();
+
+    &.inverted {
+        background-color: gray;
+        color: white;
+        line-height: 100%;
+        padding: 0.8mm 0 0.8mm 1.6mm !important;
+    }
+}
+
+.mg-small {
+    @include mg-small();
+}
+
+.amtstitel {
+    @include copy-small();
+    font-size: 6pt;
+}

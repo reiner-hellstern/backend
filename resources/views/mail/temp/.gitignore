@@ -1,0 +1,4 @@
+# Temporäre Blade-Views für Email-Rendering
+# Diese Dateien werden dynamisch erstellt und gelöscht
+*
+!.gitignore
