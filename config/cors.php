@@ -37,6 +37,7 @@ return [
         'http://localhost:8000',
         'http://localhost',
         'https://localhost',
+        'http://typo3v14',
         'https://drc-website.ddev.site',
         'https://drc-dev-api.atbloom.de',
         'https://drc-dev.atbloom.de',
