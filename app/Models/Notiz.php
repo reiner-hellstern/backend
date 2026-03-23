@@ -58,12 +58,12 @@ class Notiz extends Model
 
     public function getAuthorAttribute($date)
     {
-        return $this->user->name;
+        return $this->user?->name ?? 'Unbekannt';
     }
 
     public function getPhotoAttribute($date)
     {
-        return $this->user->profile_photo_path
+        return $this->user?->profile_photo_path
                       ? Storage::disk('public')->url($this->user->profile_photo_path)
                       : $this->defaultProfilePhotoUrl();
     }

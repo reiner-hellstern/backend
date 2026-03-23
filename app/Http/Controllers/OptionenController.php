@@ -351,8 +351,8 @@ class OptionenController extends Controller
         // $farben_rasse['0'] = $farben;
 
         // WURF / ZUCHTHUNDE
-        $zuchthunde = $person->hunde()->where('zuchtzulassung_id', '>', 0)->get();
-        $zuchthuendinnen = $person->huendinnen()->where('zuchtzulassung_id', '>', 0)->get();
+        $zuchthunde = $person->hunde()->where('hunde.zuchtzulassung_id', '>', 0)->get();
+        $zuchthuendinnen = $person->huendinnen()->where('hunde.zuchtzulassung_id', '>', 0)->get();
         $zuchthuendinnen = OptionNameResource::collection($zuchthuendinnen->sortBy('name'));
         $zuchthunde = OptionNameResource::collection($zuchthunde->sortBy('name'));
 
@@ -779,8 +779,8 @@ class OptionenController extends Controller
 
         if ($id) {
             $person = User::find($id)->person;
-            $zuchthunde = $person->hunde()->where('zuchthund', 1)->get();
-            $zuchthuendinnen = $person->huendinnen()->where('zuchthund', 1)->get();
+            $zuchthunde = $person->hunde()->where('hunde.zuchtzulassung_id', '>', 0)->get();
+            $zuchthuendinnen = $person->huendinnen()->where('hunde.zuchtzulassung_id', '>', 0)->get();
             $zuchthuendinnen = OptionNameResource::collection($zuchthuendinnen->sortBy('name'));
             $zuchthunde = OptionNameResource::collection($zuchthunde->sortBy('name'));
         } else {

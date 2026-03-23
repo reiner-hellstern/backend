@@ -181,12 +181,12 @@ class Person extends Model
 
     public function hunde()
     {
-        return $this->belongsToMany(Hund::class)->withPivot('seit', 'bis')->using(HundPerson::class)->orderBy('wurfdatum', 'desc');
+        return $this->belongsToMany(Hund::class)->withPivot('seit', 'bis')->using(HundPerson::class)->orderBy('hunde.wurfdatum', 'desc');
     }
 
     public function welpen()
     {
-        return $this->belongsToMany(Welpen::class)->orderBy('wurfdatum', 'desc');
+        return $this->belongsToMany(Welpen::class)->orderBy('welpen.wurfdatum', 'desc');
     }
 
     public function wuerfe()
@@ -202,14 +202,14 @@ class Person extends Model
     public function zuchthunde()
     {
         return $this->belongsToMany(Hund::class)->where(function ($query) {
-            $query->where('zuchthund', 1);
+            $query->where('hunde.zuchtzulassung_id', '>', 0);
         });
     }
 
     public function huendinnen()
     {
         return $this->belongsToMany(Hund::class)->where(function ($query) {
-            $query->where('geschlecht_id', '1');
+            $query->where('hunde.geschlecht_id', 1);
         });
     }
 
