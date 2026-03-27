@@ -193,7 +193,7 @@ class AhnenResource extends JsonResource
             $hund['augenuntersuchung'] = $this->augenuntersuchung;
             $hund['goniountersuchung'] = $this->goniountersuchung;
             $hund['gebiss'] = $this->gebiss;
-            $hund['eigentuemer'] = $this->eigentuemer;
+            $hund['eigentuemer'] = $this->resource->eigentuemer();
             $hund['zuechter'] = $this->zuechter;
             $hund['wurfzwinger'] = $this->wurfzwinger;
             $hund['wurfdatum'] = $this->wurfdatum;
