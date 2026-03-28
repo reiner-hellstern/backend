@@ -246,7 +246,7 @@ class Hund extends Model
 
     public function eigentuemers_aktuell()
     {
-        return $this->getAllOwnersWithDetails($this->id, auth()->user()->person_id);
+        return $this->getAllOwnersWithDetails($this->id, auth()->user()?->person_id);
     }
 
     public function hundefuehrers()
@@ -488,6 +488,6 @@ class Hund extends Model
 
     public function eigentuemer()
     {
-        return $this->getAllOwnersWithDetails($this->id, auth()->user()->person_id);
+        return $this->getAllOwnersWithDetails($this->id, auth()->user()?->person_id);
     }
 }
